@@ -27,6 +27,26 @@ Excluded artifact classes include:
 
 To reproduce with your own data, prepare compatible workbooks under `data/raw/` or provide a generated dataset artifact via `--dataset-artifact`.
 
+## Dataset Summary
+
+The private experiment data used during development is not released. The following summary is provided only to describe the task scale and tensor contract:
+
+| Item | Value |
+| --- | ---: |
+| System size | 39 nodes |
+| Sampling rate | 100 Hz |
+| Input window | `[5.00, 5.40)` |
+| Input steps | 40 |
+| Forecast window | `[5.40, 8.00)` |
+| Forecast steps | 260 |
+| Samples used in the private experiment | 382 operating cases |
+| Train / validation / test split | 267 / 38 / 77 |
+| Frequency tensor shape | `[samples, 40, 39]` |
+| Target tensor shape | `[samples, 260, 39]` |
+| Koopman tensor shape | `[samples, 39]` |
+
+The released code can be used with user-provided workbooks or a compatible prebuilt dataset artifact. Case names, raw curves, operating-condition labels, and original workbooks are not included.
+
 ## Method Summary
 
 The task is graph spatiotemporal forecasting over an IEEE-style multi-node power-grid system.
@@ -52,6 +72,21 @@ e'_ij = e_ij + softplus(beta) * K_tilde_j
 ```
 
 where `K_tilde_j` is the normalized Koopman energy of neighbor node `j`.
+
+## Private Experiment Metrics
+
+The table below reports aggregate test metrics from one private experiment run. It is included to document the observed behavior of the implementation, not to release the underlying data.
+
+| Model | MSE | RMSE | MAE |
+| --- | ---: | ---: | ---: |
+| Standard GAT-LSTM | 6.538496e-05 | 0.008086 | 0.006251 |
+| Koopman-GAT-LSTM | 6.533291e-05 | 0.008083 | 0.006248 |
+
+Lower is better. In this run, Koopman-GAT-LSTM is slightly better than the standard baseline, but the margin is small.
+
+![Overall test metrics](docs/figures/overall_metrics_comparison.svg)
+
+Prediction curves and raw case-level plots are intentionally not included because they are derived from private operating-case data.
 
 ## Installation
 
