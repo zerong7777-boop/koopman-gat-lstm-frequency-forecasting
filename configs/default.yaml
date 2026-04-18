@@ -1,0 +1,70 @@
+paths:
+  frequency_workbook: data/raw/frequency_workbook.xlsx
+  koopman_workbook: data/raw/koopman_energy.xlsx
+  adjacency_workbook: data/raw/adjacency_matrix.xlsx
+  output_dir: outputs
+model:
+  gat_hidden_dim: 16
+  gat_heads_layer1: 4
+  gat_heads_layer2: 4
+  lstm_hidden_dim: 64
+training:
+  batch_size: 16
+  max_epochs: 50
+  learning_rate: 0.001
+  patience: 10
+  device: auto
+export:
+  key_nodes: [1, 9, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+  selected_case:
+seed: 42
+split:
+  train: 0.7
+  val: 0.1
+  test: 0.2
+task:
+  input_start: 5.0
+  input_end: 5.4
+  forecast_start: 5.4
+  forecast_end: 8.0
+  sample_rate_hz: 100
+  node_order:
+    - BUS1
+    - BUS2
+    - BUS3
+    - BUS4
+    - BUS5
+    - BUS6
+    - BUS7
+    - BUS8
+    - BUS9
+    - BUS10
+    - BUS11
+    - BUS12
+    - BUS13
+    - BUS14
+    - BUS15
+    - BUS16
+    - BUS17
+    - BUS18
+    - BUS19
+    - BUS20
+    - BUS21
+    - BUS22
+    - BUS23
+    - BUS24
+    - BUS25
+    - BUS26
+    - BUS27
+    - BUS28
+    - BUS29
+    - BUS30
+    - BUS31
+    - BUS32
+    - BUS33
+    - BUS34
+    - BUS35
+    - BUS36
+    - BUS37
+    - BUS38
+    - BUS39

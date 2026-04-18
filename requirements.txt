@@ -1,0 +1,7 @@
+numpy
+pandas
+openpyxl
+matplotlib
+PyYAML>=6.0
+pytest
+torch

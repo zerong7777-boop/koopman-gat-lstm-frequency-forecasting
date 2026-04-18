@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.pytest-tmp/
+.pytest-tmp*/
+.pytest-local-tmp/
+.pytest_tmp/
+.pytest-cache*/
+pytest-cache-files-*/
+tests/**/.artifacts/
+tests/**/artifacts/
+.wheel-test/
+
+# Private/local data and experiment artifacts
+data/raw/*
+!data/raw/.gitkeep
+outputs/
+*.pt
+*.pth
+*.npz
+*.xlsx
+*.xls
+*.docx
+*.rar
+*.zip
+
+# Local environments
+.venv/
+venv/
+env/
+.env
